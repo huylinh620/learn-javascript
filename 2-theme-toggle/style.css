@@ -1,0 +1,101 @@
+.hiden {
+  display: none;
+}
+
+body {
+  --orange-red: #ff4500;
+  --white: #ffffff;
+  --black: #000000;
+  --night-rider: #333333;
+  --accent-color: #ff4500;
+  
+  --transition-delay: 1s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--white);
+  color: var(--black);
+  overflow: hidden;
+  transition: var(--transition-delay);
+}
+
+body.dark {
+  --accent-color: #d0d066;
+  background-color: var(--night-rider);
+  color: var(--white);
+}
+
+.title {
+  margin: 0;
+  margin-bottom: .5em;
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em 1em;
+  border-radius: .3em;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--white);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-delay);
+  transform: scale(1);
+  overflow: hidden;
+}
+
+.theme-toggle-button:hover,
+.theme-toggle-button:focus {
+  transform: scale(1.1);
+}
+
+.theme-toggle-button .icon {
+  margin-right: .5em;
+}
+
+.sun-moon-container {
+  --rotation: 0;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200vmin;
+  pointer-events: none;
+  transform: rotate(calc(var(--rotation) * 1deg));
+  transition: transform var(--transition-delay);
+}
+
+.sun,
+.moon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  fill: var(--accent-color);
+  transition: opacity, fill, var(--transition-delay);
+}
+
+.sun {
+  top: 5%;
+  opacity: 1;
+}
+
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+.dark .sun {
+  opacity: 0;
+}
+
+.dark .moon {
+  opacity: 1;
+}
